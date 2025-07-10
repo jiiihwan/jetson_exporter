@@ -15,7 +15,7 @@ spec:
         app: jetson-exporter
     spec:
       nodeSelector:
-        kubernetes.io/arch: arm64
+        device: jetson
       containers:
         - name: jetson-exporter
           image: yjh2353693/jetson-exporter:latest #혹은 자신이 빌드한 이미지
