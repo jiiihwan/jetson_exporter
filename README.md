@@ -104,7 +104,8 @@ kubectl get nodes --show-labels
 kubectl label nodes [node_name] device=jetson
 ```
 
-## 📤 5. Daemonset 작성 및 배포
+## 🔋 5. k8s resource 파일 작성
+### 📤 5.1. Daemonset 작성 및 배포
 - 마스터노드에서 작성
 - 포트는 metrics-server가 기본적으로 9100포트를 사용하고 있으므로 9101포트를 사용하도록 한다
 
@@ -122,7 +123,7 @@ kubectl get pods -n monitoring -o wide
 kubectl rollout restart daemonset jetson-exporter -n monitoring
 ```
 
-## 🖥️ 6. 서비스 & 서비스모니터 설정
+### 🖥️ 6. 서비스 & 서비스모니터 설정
 ```bash
 vim jetson-exporter-service.yaml
 ```
