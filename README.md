@@ -140,3 +140,6 @@ vim jetson-exporter-servicemonitor.yaml
 kubectl apply -f jetson-exporter-service.yaml -n monitoring
 kubectl apply -f jetson-exporter-servicemonitor.yaml -n monitoring
 ```
+
+## 🔧 tip) Jetson Orin Nano 에서 node-exporter 작동 안하는 문제
+[problem_solving.md](https://github.com/jiiihwan/jetson_exporter/blob/main/problem_solving.md) 참고
