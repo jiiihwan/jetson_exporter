@@ -1,9 +1,9 @@
 # ✅ jetson_exporter
 > A Prometheus exporter for monitoring resource(GPU) usage on Jetson Orin Nano
 
-based on https://github.com/svcavallar/jetson-stats-grafana-dashboard
-
-linux service가 아닌 k8s의 pod로 띄울 수 있게 개선
+- This project is extension of [k8s dashboard](https://github.com/jiiihwan/k8s-dashboard)
+- based on https://github.com/svcavallar/jetson-stats-grafana-dashboard
+- linux service가 아닌 k8s의 pod로 띄울 수 있게 개선
 
 ## 🔨 0. jetson-exporter 바로 설치
 직접 제작하는 방법을 따라하고 싶다면 1. Dockerfile 작성부터 따라하기
