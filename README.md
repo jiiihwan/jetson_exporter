@@ -1,20 +1,22 @@
 # ✅ jetson_exporter
-A Prometheus exporter for monitoring resource(GPU) usage on Jetson Orin Nano
+> A Prometheus exporter for monitoring resource(GPU) usage on Jetson Orin Nano
 
-# 🛠️ jetson stats exporter설치
-- based on https://github.com/svcavallar/jetson-stats-grafana-dashboard
-- linux service가 아닌 k8s의 pod로 띄울 수 있게 개선
+based on https://github.com/svcavallar/jetson-stats-grafana-dashboard
+
+linux service가 아닌 k8s의 pod로 띄울 수 있게 개선
 
 ## 🔨 0. jetson-exporter 바로 설치
 직접 제작하는 방법을 따라하고 싶다면 1. Dockerfile 작성부터 따라하기
 그렇지 않다면 아래에 있는 과정만 하면 된다
 
 ### git clone
+마스터노드에서 입력
 ```bash
 git clone https://github.com/jiiihwan/jetson_exporter
 ```
 
 ### 모두 적용
+
 ```bash
 kubectl apply -f jetson-exporter-daemonset.yaml
 kubectl apply -f jetson-exporter-service.yaml -n monitoring
@@ -93,7 +95,7 @@ nerdctl push yjh2353693/jetson-exporter:latest
 ```
 
 ## 🏷️ 4. 노드 라벨링
-jetson orin nano에 device=jetson 이라는 라벨링 추가
+jetson orin nano에 `device=jetson` 이라는 라벨링 추가
 
 이 라벨링을 통해서 daemonset이 jetson 종류의 기기에만 jetson-exporter를 배포한다
   
