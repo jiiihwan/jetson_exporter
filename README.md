@@ -11,7 +11,7 @@ A Prometheus exporter for monitoring resource(GPU) usage on Jetson Orin Nano
 
 ### git clone
 ```bash
-git clone https://github.com/jiiihwan/k8s-dashboard/tree/main/exporter
+git clone https://github.com/jiiihwan/jetson_exporter
 ```
 
 ### 모두 적용
