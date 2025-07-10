@@ -1,4 +1,4 @@
-# 프로메테우스-node exporter 수집안되는문제
+# promethus의 node exporter 수집안되는문제
 - 워커노드는 orin nano. 이때 마스터노드는 되는데 워커노드의 node exporter가 프로메테우스에서 수집안되는 문제가 있었다
 - 로그 분석했을때 cpu freqency 를 수집할때 파일이 너무 크다는 로그가 계속해서 떠서 데몬셋 yml설정에서 `cpufreq`수집을 비활성화함
 - 그런데도 안됐다. 그래서 대략 3일정도를 찾아본결과….
