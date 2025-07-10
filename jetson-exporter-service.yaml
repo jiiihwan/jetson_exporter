@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hailo-exporter
+  name: jetson-exporter
   namespace: monitoring
   labels:
-    app: hailo-exporter
+    app: jetson-exporter
 spec:
   selector:
-    app: hailo-exporter
+    app: jetson-exporter
   ports:
     - name: metrics
-      port: 9102
-      targetPort: 9102
+      port: 9101
+      targetPort: 9101
