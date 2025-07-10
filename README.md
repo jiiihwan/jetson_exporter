@@ -36,43 +36,43 @@ vim Dockerfile
 ## 🔨 2. nerdctl 및 buildkit 설치
 이미지 build를 위해 보통 docker를 사용하지만 컨테이너 런타임을 containerd로 사용하고 있으므로 nerdctl과 buildkit을 사용한다
 
-### nerdctl 파일용 폴더 생성
+### 2.1. nerdctl 파일용 폴더 생성
 ```bash
 mkdir nerdctl
 cd nerdctl
 ```
 
-### nerdctl 설치
+### 2.2. nerdctl 설치
 ```bash
 curl -s https://api.github.com/repos/containerd/nerdctl/releases/latest \
 | grep "browser_download_url.*linux-arm64.tar.gz" \
 | cut -d '"' -f 4 \
 | wget -i -
 ```
-### 압축해제
+### 2.3. 압축해제
 ```
 tar xzvf nerdctl-full-2.0.4-linux-arm64.tar.gz
 ```
 
-### buildkit 포함 nerdctl 설치
+### 2.4. buildkit 포함 nerdctl 설치
 ```bash
 sudo cp bin/nerdctl /usr/local/bin/
 sudo cp bin/buildctl /usr/local/bin/
 sudo cp bin/buildkitd /usr/local/bin/
 ```
-### 버전 확인
+### 2.5. 버전 확인
 ```
 nerdctl --version
 ```
 
 ## 🐋 3. 이미지 build & push
 
-### buildkitd 실행
+### 3.1. buildkitd 실행
 ```
 sudo nohup buildkitd > /dev/null 2>&1 &
 ```
 
-### l4t basefile 을 위해서 ngc회원가입 및 로그인
+### 3.2. l4t basefile 을 위해서 ngc회원가입 및 로그인
 api키 발급(https://org.ngc.nvidia.com/setup/api-keys)
 ```bash
 nerdctl login nvcr.io
@@ -80,14 +80,14 @@ Enter Username: $oauthtoken
 Enter Password: <APIKEY>
 ```
 
-### dockerfile 빌드
+### 3.3. dockerfile 빌드
 직접 빌드를 한다면 build 명령어의 본인의 도커허브 레포지토리를 쓰면 된다.
 
 ```bash
 cd ~/jetson_stats_node_exporter
 nerdctl build -t yjh2353693/jetson-exporter:latest .
 ```
-### Dockerhub에 푸시
+### 3.4. Dockerhub에 푸시
 
 Dockerhub 회원가입 필요
 ```
@@ -123,7 +123,7 @@ kubectl get pods -n monitoring -o wide
 kubectl rollout restart daemonset jetson-exporter -n monitoring
 ```
 
-### 🖥️ 6. 서비스 & 서비스모니터 설정
+### 🖥️ 5.2. 서비스 & 서비스모니터 설정
 ```bash
 vim jetson-exporter-service.yaml
 ```
