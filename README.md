@@ -105,6 +105,15 @@ kubectl label nodes [node_name] device=jetson
 ```
 
 ## 🔋 5. k8s resource 파일 작성
+### 동작 방식
+- 라벨을 이용해서 daemonset, service, service monitor가 target을 찾을 수 있게 한다
+
+| 리소스              | 라벨                                     | 라벨 용도                             |
+|---------------------|--------------------------------------------------|----------------------------------------|
+| `Pod` (DaemonSet)   | `app: hailo-exporter`                            | Service가 Pod 선택하는 기준           |
+| `Service`           | `app: hailo-exporter`, `release: prometheus`     | ServiceMonitor가 Service 찾는 기준    |
+| `ServiceMonitor`    | `release: prometheus`                            | Prometheus가 ServiceMonitor 찾는 기준 |
+
 ### 📤 5.1. Daemonset 작성 및 배포
 - 마스터노드에서 작성
 - 포트는 metrics-server가 기본적으로 9100포트를 사용하고 있으므로 9101포트를 사용하도록 한다
