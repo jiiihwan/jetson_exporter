@@ -110,8 +110,8 @@ kubectl label nodes [node_name] device=jetson
 
 | 리소스              | 라벨                                     | 라벨 용도                             |
 |---------------------|--------------------------------------------------|----------------------------------------|
-| `Pod` (DaemonSet)   | `app: hailo-exporter`                            | Service가 Pod 선택하는 기준           |
-| `Service`           | `app: hailo-exporter`, `release: prometheus`     | ServiceMonitor가 Service 찾는 기준    |
+| `Pod` (DaemonSet)   | `app: jetson-exporter`                            | Service가 Pod 선택하는 기준           |
+| `Service`           | `app: jetson-exporter`, `release: prometheus`     | ServiceMonitor가 Service 찾는 기준    |
 | `ServiceMonitor`    | `release: prometheus`                            | Prometheus가 ServiceMonitor 찾는 기준 |
 
 ### 📤 5.1. Daemonset 작성 및 배포
