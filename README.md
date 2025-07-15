@@ -85,13 +85,13 @@ Enter Password: <APIKEY>
 
 ```bash
 cd ~/jetson_stats_node_exporter
-nerdctl build -t yjh2353693/jetson-exporter:latest .
+nerdctl build -t <your_dockerhub> .
 ```
 ### 3.4. Dockerhub에 푸시
 
 Dockerhub 회원가입 필요
 ```
-nerdctl push yjh2353693/jetson-exporter:latest
+nerdctl push <your_dockerhub>
 ```
 
 ## 🏷️ 4. 노드 라벨링
