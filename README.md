@@ -43,6 +43,11 @@ cd nerdctl
 ```
 
 ### 2.2. nerdctl 설치
+만약 오류나면 latest가 아닌 다른 버전으로 시도해 볼 것.
+현재 시스템에서는 2.0.4 를 사용했다
+
+또한 본인이 설치하고자 하는 기기의 os에 따라서 arm64, amd64용 압축파일을 선택해서 명령어를 입력해야하니 주의 할 것
+
 ```bash
 curl -s https://api.github.com/repos/containerd/nerdctl/releases/latest \
 | grep "browser_download_url.*linux-arm64.tar.gz" \
