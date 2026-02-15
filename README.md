@@ -2,9 +2,9 @@
 
 [**English**](README.en.md) | [**한국어**](README.md)
 
-> Jetson Orin Nano와 같은 Jetson 장치에서 GPU/NPU 리소스 사용량을 모니터링하기 위한 Prometheus Exporter입니다.
+> NVIDIA Jetson 장치에서 GPU 리소스 사용량을 모니터링하기 위한 Prometheus Exporter
 
-**Jetson Exporter**는 [k8s dashboard](https://github.com/jiiihwan/k8s-dashboard)의 확장 기능으로, [jetson-stats-grafana-dashboard](https://github.com/svcavallar/jetson-stats-grafana-dashboard)를 기반으로 합니다. 기존의 Linux 서비스 방식이 아닌 **Kubernetes Pod** 형태로 실행되도록 개선되었습니다.
+**Jetson Exporter**는 [k8s dashboard](https://github.com/jiiihwan/k8s-dashboard)의 확장 기능으로, [jetson-stats-grafana-dashboard](https://github.com/svcavallar/jetson-stats-grafana-dashboard)를 기반으로 제작되었습니다. 기존의 Linux systemd service 방식이 아닌 **Kubernetes Pod** 형태로 실행되도록 개선되었습니다.
 
 직접 이미지를 빌드하려면 [**빌드 가이드 (BUILD.md)**](BUILD.md)를 참고하세요.
 
