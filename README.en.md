@@ -2,9 +2,9 @@
 
 [**English**](README.en.md) | [**한국어**](README.md)
 
-> A Prometheus Exporter for monitoring GPU/NPU resource usage on Jetson devices.
+> A Prometheus Exporter for monitoring GPU resource usage on NVIDIA Jetson devices.
 
-**Jetson Exporter** is an extension of the [k8s dashboard](https://github.com/jiiihwan/k8s-dashboard) and is based on [jetson-stats-grafana-dashboard](https://github.com/svcavallar/jetson-stats-grafana-dashboard). It has been designed to run as a **Kubernetes Pod** rather than a Linux service.
+**Jetson Exporter** is an extension of the [k8s dashboard](https://github.com/jiiihwan/k8s-dashboard) and is based on [jetson-stats-grafana-dashboard](https://github.com/svcavallar/jetson-stats-grafana-dashboard). It has been designed to run as a **Kubernetes Pod** rather than a Linux systemd service.
 
 For building the image from source, please refer to the [**Build Guide (BUILD.en.md)**](BUILD.en.md).
 
