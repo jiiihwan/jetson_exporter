@@ -4,9 +4,26 @@
 
 > A Prometheus Exporter for monitoring GPU/NPU resource usage on Jetson devices.
 
-This project is an extension of the [k8s dashboard](https://github.com/jiiihwan/k8s-dashboard) and is based on [jetson-stats-grafana-dashboard](https://github.com/svcavallar/jetson-stats-grafana-dashboard). It has been designed to run as a **Kubernetes Pod** rather than a Linux service.
+**Jetson Exporter** is an extension of the [k8s dashboard](https://github.com/jiiihwan/k8s-dashboard) and is based on [jetson-stats-grafana-dashboard](https://github.com/svcavallar/jetson-stats-grafana-dashboard). It has been designed to run as a **Kubernetes Pod** rather than a Linux service.
 
 For building the image from source, please refer to the [**Build Guide (BUILD.en.md)**](BUILD.en.md).
+
+---
+
+## 📖 Introduction
+
+**This exporter** collects system metrics (GPU, CPU, Memory, Temperature, etc.) from NVIDIA Jetson devices and exports them to Prometheus.
+
+### How it Works
+1.  **jtop (jetson-stats)**: Uses the [jtop](https://github.com/rbonghi/jetson_stats) library to read real-time hardware status from the Jetson device.
+2.  **Prometheus Client**: Uses Python's `prometheus_client` to convert data into metrics and exposes them via an HTTP server (default port 9101).
+3.  **DaemonSet**: Deployed as a Pod on every Jetson node (`device=jetson` label) in the Kubernetes cluster to collect metrics from each node.
+
+### Collected Metrics
+- **GPU**: Usage (`jetson_gpu_usage`), Frequency (`jetson_gpu_freq`), Memory Usage (`jetson_gpu_memory`)
+- **CPU**: Frequency and Idle stats per core (`jetson_cpu`)
+- **Memory**: RAM usage, buffers, cache (`jetson_ram`)
+- **Temperature**: Temperature by component (`jetson_temperature`)
 
 ---
 
