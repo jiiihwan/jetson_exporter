@@ -1,0 +1,12 @@
+apiVersion: v2
+name: jetson-exporter
+description: A Helm chart for Jetson Exporter to monitor NVIDIA Jetson devices on Kubernetes
+type: application
+version: 0.1.0
+appVersion: "latest"
+keywords:
+  - jetson
+  - nvidia
+  - prometheus
+  - exporter
+  - monitoring

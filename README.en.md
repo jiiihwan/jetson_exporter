@@ -48,8 +48,33 @@ kubectl get nodes --show-labels
 kubectl label nodes [jetson-node-name] device=jetson
 ```
 
-### 3. Apply Resources
-Deploy DaemonSet, Service, and ServiceMonitor.
+### 3. Deploy Resources
+
+> **Prerequisites**
+> This project assumes that the monitoring stack (Prometheus Operator, Grafana) from **[k8s-dashboard](https://github.com/jiiihwan/k8s-dashboard)** is already installed.
+> If not, please follow the guide in that repository first.
+
+Choose one of the following methods to deploy.
+
+#### **[Option A] Install via Helm Chart (Recommended)**
+This is the easiest way if Helm is installed.
+
+```bash
+# 1. Add Helm Repo
+helm repo add jetson-exporter https://jiiihwan.github.io/jetson_exporter
+helm repo update
+
+# 2. Verify Namespace (uses 'monitoring' namespace from k8s-dashboard)
+kubectl get ns monitoring
+
+# 3. Install Helm Chart (Release name: jetson-exporter)
+helm install jetson-exporter jetson-exporter/jetson-exporter -n monitoring
+```
+
+> **Note**: To install from local source, use `cd helm/jetson-exporter && helm install jetson-exporter . -n monitoring`.
+
+#### **[Option B] Install via Kubectl**
+Applying Kubernetes manifest (`yaml`) files directly.
 
 ```bash
 # Deploy DaemonSet

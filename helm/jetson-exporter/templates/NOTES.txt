@@ -1,0 +1,11 @@
+1. Get the application URL by running these commands:
+{{- if .Values.serviceMonitor.enabled }}
+  The ServiceMonitor resource has been created. Prometheus Operator should automatically discover the Jetson Exporter targets.
+  Check dependencies if you see errors about "ServiceMonitor" kind not found.
+{{- else }}
+  ServiceMonitor creation is disabled. Ensure you have configured Prometheus to scrape this service manually.
+{{- end }}
+
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "jetson-exporter.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
+  echo "Visit http://127.0.0.1:{{ .Values.service.port }} to use your application"
+  kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME {{ .Values.service.port }}:{{ .Values.service.port }}

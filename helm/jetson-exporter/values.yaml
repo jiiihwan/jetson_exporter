@@ -1,0 +1,58 @@
+# Default values for jetson-exporter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: yjh2353693/jetson-exporter
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 9101
+  annotations: {}
+
+serviceMonitor:
+  enabled: true
+  # namespace: monitoring
+  # fallback to the release namespace if not set
+  interval: 1s
+  scrapeTimeout: 10s
+  labels:
+    release: prometheus
+  # Common labels for Prometheus Operator to discover the ServiceMonitor
+
+nodeSelector:
+  device: jetson
+
+# Tolerations for scheduling on nodes with taints
+tolerations: []
+
+# Resources for the exporter container
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# Security context for the pod (privileged required for jtop)
+securityContext:
+  privileged: true
+
+# Volume mounts for jtop
+volumes:
+  - name: jtop-sock
+    hostPath:
+      path: /run/jtop.sock
+      type: Socket
+
+volumeMounts:
+  - name: jtop-sock
+    mountPath: /run/jtop.sock
+    readOnly: true

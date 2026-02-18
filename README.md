@@ -48,8 +48,33 @@ kubectl get nodes --show-labels
 kubectl label nodes [jetson-node-name] device=jetson
 ```
 
-### 3. 리소스 적용 (Apply Resources)
-DaemonSet, Service, ServiceMonitor를 배포합니다.
+### 3. 리소스 배포 (Deploy Resources)
+
+> **사전 요구사항 (Prerequisites)**
+> 이 프로젝트는 **[k8s-dashboard](https://github.com/jiiihwan/k8s-dashboard)** 의 모니터링 스택(Prometheus Operator, Grafana)이 설치된 환경을 가정합니다.
+> 아직 설치하지 않았다면, 위 레포지토리의 가이드를 먼저 진행해 주세요.
+
+두 가지 방법 중 하나를 선택하여 배포하세요.
+
+#### **[Option A] Helm Chart로 설치하기 (권장)**
+Helm이 설치되어 있다면 가장 간편하게 배포할 수 있습니다.
+
+```bash
+# 1. Helm Repo 추가
+helm repo add jetson-exporter https://jiiihwan.github.io/jetson_exporter
+helm repo update
+
+# 2. Helm 네임스페이스 확인 (k8s-dashboard에서 생성된 'monitoring' 네임스페이스 사용)
+kubectl get ns monitoring
+
+# 3. Helm 설치 (Release name: jetson-exporter)
+helm install jetson-exporter jetson-exporter/jetson-exporter -n monitoring
+```
+
+> **참고**: 로컬 차트 폴더를 이용해 설치하려면 `cd helm/jetson-exporter && helm install jetson-exporter . -n monitoring` 명령어를 사용하세요.
+
+#### **[Option B] Kubectl로 직접 설치하기**
+Kubernetes 매니페스트(`yaml`) 파일을 직접 적용하는 방식입니다.
 
 ```bash
 # DaemonSet 배포
