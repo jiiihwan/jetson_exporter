@@ -34,7 +34,7 @@ jobs:
         run: |
           # Add dependent repositories here if needed
           # helm repo add bitnami https://charts.bitnami.com/bitnami
-          pass
+          echo "No dependencies to add"
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
